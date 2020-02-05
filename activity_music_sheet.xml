@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ConstraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".MusicSheet">
+
+
+    <ScrollView
+        android:id="@+id/music_sheet_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="100dp"
+        android:layout_weight="1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/main_bar"
+        android:layout_width="412dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/darker_gray"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/music_sheet_scroll">
+
+        <ImageButton
+            android:id="@+id/play_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/todo"
+            android:onClick="play"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/play" />
+
+        <ImageButton
+            android:id="@+id/restart_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/todo"
+            android:onClick="restart"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/back_to_beginning" />
+
+        <ImageButton
+            android:id="@+id/note_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/todo"
+            android:onClick="cycleNoteType"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="20dp"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/quarter_note" />
+
+        <ImageButton
+            android:id="@+id/undo_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:contentDescription="@string/todo"
+            android:onClick="undo"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/undo" />
+    </LinearLayout>
+
+
+    <android.support.v4.widget.SlidingPaneLayout
+        android:id="@+id/sliding_sidebar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="250dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="100dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/tab"
+                android:layout_width="78dp"
+                android:layout_height="75dp"
+                android:layout_weight="1"
+                android:adjustViewBounds="false"
+                android:contentDescription="@string/todo"
+                android:cropToPadding="false"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/tab" />
+
+            <LinearLayout
+                android:id="@+id/side_toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@null"
+                android:gravity="top"
+                android:orientation="vertical">
+
+                <ToggleButton
+                    android:id="@+id/rest_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/rest_toggle"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ToggleButton
+                    android:id="@+id/dot_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/dot_toggle"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ImageButton
+                    android:id="@+id/accident_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:contentDescription="@string/todo"
+                    android:onClick="cycleAccidental"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/natural" />
+
+                <ToggleButton
+                    android:id="@+id/edit_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4.5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_toggle"
+                    android:textOff=""
+                    android:textOn="" />
+
+                <ImageButton
+                    android:id="@+id/delete_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4.5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/erase"
+                    android:onClick="deleteNote"
+                    android:textOn="" />
+
+                <ImageButton
+                    android:id="@+id/add_stuff_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:contentDescription="@string/todo"
+                    android:onClick="addStuff"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/addition" />
+
+                <ImageButton
+                    android:id="@+id/save_button"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="4dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:contentDescription="@string/todo"
+                    android:onClick="save"
+                    android:scaleType="fitCenter"
+                    app:srcCompat="@drawable/save_icon" />
+            </LinearLayout>
+        </LinearLayout>
+    </android.support.v4.widget.SlidingPaneLayout>
+</android.support.constraint.ConstraintLayout>
